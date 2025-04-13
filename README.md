@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Crypto Fee Optimizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application that visualizes transaction fees for Ethereum, Bitcoin, and Solana blockchains, helping users find the optimal time to transact and save money on network fees.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Multiple Blockchain Support**: 
+  - Ethereum gas fee tracking
+  - Bitcoin transaction fee monitoring
+  - Solana transaction fee monitoring
+- **Real-time Fee Data**: Shows current fees for low, standard, and fast transactions
+- **Historical Fee Charts**: Visualizes fee trends over different time periods (24 hours, 7 days, 14 days)
+- **Transaction Time Recommendations**: Suggests the best hours and days to transact based on historical data
+- **Fee Saving Tips**: Network-specific advice for minimizing transaction costs
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Access the live demo at [https://genius740code.github.io/gas-optimizer](https://genius740code.github.io/gas-optimizer)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or later)
+- npm (v6 or later)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository:
+```
+git clone https://github.com/Genius740Code/gas-optimizer.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate to the project directory:
+```
+cd gas-optimizer
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install dependencies:
+```
+npm install
+```
 
-### `npm run eject`
+4. Create a `.env` file with your API keys:
+```
+REACT_APP_ETHERSCAN_API_KEY=YourEtherscanAPIKey
+REACT_APP_SOLSCAN_API_KEY=YourSolscanAPIKey
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. Get API keys from:
+   - [Etherscan](https://etherscan.io/apis) for Ethereum data
+   - [Solscan](https://public-api.solscan.io/) for Solana data (optional)
+   - Bitcoin data uses the public mempool.space API (no key required)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running the Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+In Windows PowerShell:
+```
+cd gas-optimizer
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The application will be available at [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## Technical Details
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Built with React and TypeScript
+- Uses Recharts for data visualization
+- Connects to blockchain APIs for fee data:
+  - Etherscan API for Ethereum gas fees
+  - mempool.space API for Bitcoin transaction fees
+  - Solana blockchain API for transaction fees
+- Implements responsive design for all device sizes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Usage Notes
+
+This application uses the free tier of blockchain APIs, with historical data simulated based on known fee patterns to avoid API rate limits. For production use with real historical data, consider upgrading to paid API services or implementing server-side caching.
+
+## How It Works
+
+- **Network Selection**: Switch between Ethereum, Bitcoin, and Solana networks
+- **TimeFrame Selection**: View fee data over different time periods
+- **Fee Analysis**: Automatic calculation of optimal transaction times
+- **Recommendations**: Network-specific advice for cost optimization
+
+## Customization
+
+You can modify the following aspects:
+
+- **API Keys**: Replace the placeholders in `.env` with your actual API keys
+- **Refresh Rate**: Change the data refresh interval in `App.tsx` (default is 5 minutes)
+- **Time Frames**: Add or modify time periods in `TimeFrameSelector.tsx`
+- **Add More Networks**: Extend the application to support additional blockchains
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

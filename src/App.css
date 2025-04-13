@@ -1,38 +1,439 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
 .App {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.App-header {
+  background-color: #2d3748;
+  color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.App-header p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Main content */
+.App-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Chart container */
+.chart-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.chart-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2d3748;
+}
+
+/* TimeFrame Selector */
+.timeframe-selector h3 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.timeframe-btn {
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  color: #4a5568;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timeframe-btn:hover {
+  background-color: #edf2f7;
+}
+
+.timeframe-btn.active {
+  background-color: #4a5568;
+  color: white;
+  border-color: #4a5568;
+}
+
+/* Optimal Times */
+.optimal-times {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.optimal-times h2 {
+  color: #2d3748;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.optimal-times h3 {
+  color: #4a5568;
+  font-size: 1.2rem;
+}
+
+/* Current Gas Prices */
+.current-gas {
+  margin-bottom: 30px;
+}
+
+.gas-prices-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.gas-card {
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 170px;
+  flex: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.gas-card:hover {
+  transform: translateY(-5px);
+}
+
+.gas-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.gas-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.gas-value span {
+  font-size: 1rem;
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+.gas-description {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.gas-card.safe {
+  background-color: #e6fffa;
+  border: 1px solid #b2f5ea;
+  color: #234e52;
+}
+
+.gas-card.standard {
+  background-color: #ebf8ff;
+  border: 1px solid #bee3f8;
+  color: #2a4365;
+}
+
+.gas-card.fast {
+  background-color: #fff5f5;
+  border: 1px solid #fed7d7;
+  color: #742a2a;
+}
+
+/* Recommended Transaction Times */
+.recommended-times {
+  margin-top: 20px;
+}
+
+.time-sections {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.best-hours, .best-days {
+  flex: 1;
+  min-width: 250px;
+}
+
+.best-hours ul, .best-days ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.best-hours li, .best-days li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.time, .day {
+  font-weight: bold;
+  color: #4a5568;
+}
+
+.gas {
+  color: #718096;
+}
+
+/* Transaction Tips */
+.transaction-tips {
+  background-color: #f7fafc;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #4299e1;
+}
+
+.transaction-tips h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #2b6cb0;
+}
+
+.transaction-tips ul {
+  text-align: left;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.transaction-tips li {
+  margin-bottom: 8px;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.App-footer {
+  margin-top: 40px;
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+/* Loading and Error states */
+.loading, .error {
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.error {
+  color: #e53e3e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+  
+  .App-header {
+    padding: 20px;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .gas-prices-cards {
+    flex-direction: column;
+  }
+  
+  .time-sections {
+    flex-direction: column;
+  }
+}
+
+/* Network Selector */
+.selectors-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.network-selector {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.network-selector h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #4a5568;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.network-btn {
+  display: flex;
+  align-items: center;
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  color: #4a5568;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 0 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.network-btn:hover {
+  background-color: #edf2f7;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.network-btn.active {
+  background-color: #4a5568;
+  color: white;
+  border-color: #4a5568;
+}
+
+.network-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.network-icon.ethereum {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.37 1277.39"><path d="M392.07 0l-8.57 29.11v844.63l8.57 8.55 392.06-231.75z" fill="%23343434"/><path d="M392.07 0L0 650.54l392.07 231.75V472.33z" fill="%238C8C8C"/><path d="M392.07 956.52l-4.83 5.89v300.87l4.83 14.1 392.3-552.49z" fill="%233C3C3B"/><path d="M392.07 1277.38V956.52L0 724.89z" fill="%238C8C8C"/><path d="M392.07 882.29l392.06-231.75-392.06-178.21z" fill="%23141414"/><path d="M0 650.54l392.07 231.75V472.33z" fill="%23393939"/></svg>');
+}
+
+.network-icon.bitcoin {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.4s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z" fill="%23F7931A"/></svg>');
+}
+
+.network-icon.solana {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 397.7 311.7"><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="360.879" y1="351.455" x2="141.213" y2="-69.294" gradientTransform="matrix(1 0 0 -1 0 314)"><stop offset="0" stop-color="%2300ffa3"/><stop offset="1" stop-color="%23dc1fff"/></linearGradient><path d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z" fill="url(%23a)"/><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="264.829" y1="401.601" x2="45.163" y2="-19.148" gradientTransform="matrix(1 0 0 -1 0 314)"><stop offset="0" stop-color="%2300ffa3"/><stop offset="1" stop-color="%23dc1fff"/></linearGradient><path d="M64.6 3.8C67.1 1.4 70.4 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z" fill="url(%23b)"/><linearGradient id="c" gradientUnits="userSpaceOnUse" x1="312.548" y1="376.688" x2="92.882" y2="-44.061" gradientTransform="matrix(1 0 0 -1 0 314)"><stop offset="0" stop-color="%2300ffa3"/><stop offset="1" stop-color="%23dc1fff"/></linearGradient><path d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z" fill="url(%23c)"/></svg>');
+}
+
+/* Add styles for the next optimal time card */
+.next-optimal-time {
+  margin: 20px 0;
+}
+
+.optimal-time-card {
+  background-color: #f5f8fd;
+  border-radius: 10px;
+  border: 1px solid #e0e7ff;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.optimal-time-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.optimal-time-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.optimal-time-day {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3a4374;
+  margin-bottom: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.optimal-time-hour {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4c6ef5;
+  margin-bottom: 10px;
+}
+
+.optimal-time-fee {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+.optimal-time-fee span {
+  font-weight: 500;
+  color: #3a4374;
+}
+
+.optimal-time-eta {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6c757d;
+  background-color: #e9ecef;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 5px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .optimal-time-hour {
+    font-size: 1.75rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .optimal-time-day {
+    font-size: 1.1rem;
+  }
+  
+  .optimal-time-fee {
+    font-size: 1rem;
   }
 }
